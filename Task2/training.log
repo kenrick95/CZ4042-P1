@@ -1,0 +1,8 @@
+y_train: mean(206633.04), std_dev(115302.73)
+----------- Model 0: loss_and_metrics: 51039494104.3 
+----------- Model 1: loss_and_metrics: 49424888417.4 
+----------- Model 2: loss_and_metrics: 51785299594.4 
+----------- Model 3: loss_and_metrics: 51722391732.1 
+----------- Model 4: loss_and_metrics: 49106619600.8 
+-----------------  Best model (index: 4) re-training....
+----------- Model 5: loss_and_metrics: 34402720479.6 
