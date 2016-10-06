@@ -13,10 +13,10 @@ early_stopping = EarlyStopping(monitor='val_loss', patience=4)
 ## Constants
 spambase_data = "spambase.data"
 test_split = 0.3 # split over original data
-val_split = 0.5
+val_split = 0.5 # split over test data
 epochs = 2500
 batch_size = 32
-learning_rate = [0.5, 0.25, 0.2, 0.1, 0.01, 0.001, 1e-4]
+learning_rate = [0.1]#[0.5, 0.25, 0.2, 0.1, 0.01, 0.001, 1e-4]
 decay = 1e-4
 momentum = 0
 hidden_nodes = 20
@@ -26,7 +26,7 @@ np.random.seed(42)
 ## Loading data
 orig_data = pd.read_csv(spambase_data, sep=',')
 
-X_orig = (orig_data.ix[:,0:56].values).astype('float32')
+X_orig = (orig_data.ix[:,0:57].values).astype('float32')
 y_orig = (orig_data.ix[:,57].values).astype('float32')
 
 ## Normalization
@@ -46,12 +46,6 @@ input_dim = X_train.shape[1]
 def create_model(lr):
     _model = Sequential()
     _model.add(Dense(hidden_nodes, input_dim=input_dim, init='uniform'))
-    _model.add(Activation('sigmoid'))
-
-    _model.add(Dense(hidden_nodes, init='uniform'))
-    _model.add(Activation('sigmoid'))
-    
-    _model.add(Dense(hidden_nodes, init='uniform'))
     _model.add(Activation('sigmoid'))
 
     _model.add(Dense(1, init='uniform'))
@@ -87,6 +81,6 @@ for lr in learning_rate:
         print("%s: %s" % (metric, score))
 
 
-    f = open('training_model_3way_2500ep_3hdl_lr%s.pkl' % (lr), 'wb')
+    f = open('training_model_3way_2500ep_1hdl_20hdn_lr%s.pkl' % (lr), 'wb')
     pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
     f.close()
