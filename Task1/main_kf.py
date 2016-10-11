@@ -21,7 +21,7 @@ decay = 1e-4
 momentum = 0
 hidden_nodes = 20
 
-np.random.seed(42)
+# np.random.seed(42)
 
 ## Loading data
 orig_data = pd.read_csv(spambase_data, sep=',')
@@ -44,7 +44,7 @@ input_dim = X_train.shape[1]
 
 def create_model(lr):
     _model = Sequential()
-    _model.add(Dense(1, input_dim=input_dim, init='uniform'))
+    _model.add(Dense(hidden_nodes, input_dim=input_dim, init='uniform'))
     _model.add(Activation('sigmoid'))
 
     _model.add(Dense(1, init='uniform'))

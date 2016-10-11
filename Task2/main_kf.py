@@ -26,7 +26,7 @@ decay = 1e-4
 momentum = 0
 hidden_nodes = [8]#[4, 8, 12, 16, 20, 24]
 
-np.random.seed(42)
+# np.random.seed(42)
 
 ## Loading data
 orig_data = pd.read_csv(cal_housing_data, sep=',')

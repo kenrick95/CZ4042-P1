@@ -21,7 +21,7 @@ decay = 1e-4
 momentum = 0
 hidden_nodes = 20
 
-np.random.seed(42)
+# np.random.seed(42)
 
 ## Loading data
 orig_data = pd.read_csv(spambase_data, sep=',')
@@ -81,6 +81,6 @@ for lr in learning_rate:
         print("%s: %s" % (metric, score))
 
 
-    f = open('training_model_3way_2500ep_1hdl_20hdn_lr%s.pkl' % (lr), 'wb')
+    f = open('c_training_model_3way_2500ep_1hdl_20hdn_lr%s.pkl' % (lr), 'wb')
     pickle.dump(model, f, protocol=pickle.HIGHEST_PROTOCOL)
     f.close()
